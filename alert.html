@@ -2,47 +2,49 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0;">	
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0"/>	
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css" />
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.3.2.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/cordova-incl.js"></script>
-    	<script type="text/javascript" charset="utf-8">
+         
+    	
+        <script type="text/javascript" charset="utf-8">
 			var deviceReady = false;
 			
 			var beep = function(){
         		navigator.notification.beep(3);
 			};
 
-    var vibrate = function(){
-      navigator.notification.vibrate(1000);
-    };
+    		var vibrate = function(){
+      			navigator.notification.vibrate(1000);
+			};
 
-    var alertDialog = function(message, title, button) {
-        console.log("alertDialog()");
-        navigator.notification.alert(message,
-            function(){
-                console.log("Alert dismissed.");
-            },
-            title, button);
-        console.log("After alert");
-    };
+    		var alertDialog = function(message, title, button) {
+        		console.log("alertDialog()");
+        		navigator.notification.alert(message,
+            		function(){
+                		console.log("Alert dismissed.");
+            		},
+            		title, button);
+        		console.log("After alert");
+    		};
 
 
-    var confirmDialogB = function(message, title, buttons) {
-        navigator.notification.confirm(message,
-            function(r) {
-                if(r===0){
-                    console.log("Dismissed dialog without making a selection.");
-                    alert("Dismissed dialog without making a selection.");
-                }else{
-                    console.log("You selected " + r);
-                    alert("You selected " + buttons[r-1]);
-                }
-            },
-            title,
-            buttons);
-    };
+            var confirmDialogB = function(message, title, buttons) {
+                navigator.notification.confirm(message,
+                function(r) {
+                    if(r===0){
+                        console.log("Dismissed dialog without making a selection.");
+                        alert("Dismissed dialog without making a selection.");
+                    }else{
+                        console.log("You selected " + r);
+                        alert("You selected " + buttons[r-1]);
+                    }
+                },
+                title,
+                buttons);
+        };
 
     var promptDialog = function(message, title, buttons) {
         navigator.notification.prompt(message,
@@ -89,18 +91,18 @@
   </div>
   <div data-role="content" data-theme="b">
     <div data-role="controlgroup">
-    	<a href="#" data-role="button" onClick="beep()">Beep</a>
+    	<a href="#" data-role="button" onclick="beep()">Beep</a>
         <a href="#" data-role="button" onclick="alertDialog('You pressed alert.', 'Alert Dialog', 'Continue');">Alerta</a>
-        <a href="#" data-role="button"onclick="confirmDialogB('You pressed confirm.', 'Confirm Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Confirm Dialog</a>
-        <a href="#" data-role="button"onclick="promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Prompt Dialog</a>
+        <a href="#" data-role="button" onclick="confirmDialogB('You pressed confirm.', 'Confirm Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Confirm Dialog</a>
+        <a href="#" data-role="button" onclick="promptDialog('You pressed prompt.', 'Prompt Dialog', ['Yes', 'No', 'Maybe, Not Sure']);">Prompt Dialog</a>
     </div> 
   </div>
   
   <div data-role="footer" data-position="fixed">
     <div data-role="controlgroup" data-type="horizontal" class="ui-bar">
     	<a href="index.html" data-role="button" data-icon="home" data-transition="flip" data-iconpos="notext"></a>
-        <a href="#" data-role="button" class="ui-btn-active">Notificaciones</a>
-        <a href="#" data-role="button">Botón</a>
+        <a href="camera.html" data-role="button" class="ui-btn-active">Notificaciones</a>
+        <a href="#" data-role="button">Cámara</a>
         <a href="#" data-role="button">Botón</a>
     </div>
     
